@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Morning Checklist</title>
+</head>
+
+<body>
+
+
+    <div class="d-flex justify-content-center my-bg-orange">
+
+
+        <divclass="d-flex justify-content-center">
+            <h1>Morning Habits</h1>
+            <p>Checklist</p>
+    </div>
+    <div class="d-flex justify-content-center">
+
+
+
+        <div class="container d-flex justify-content-center">
+            <form>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>Check</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Wake up at the same time every day to establish a consistent sleep schedule.</td>
+                            <td><input type="checkbox" id="item1" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Prioritize self-care through activities such as exercise, meditation, or yoga.</td>
+                            <td><input type="checkbox" id="item2" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Make a to-do list for the day and set specific goals to increase productivity.</td>
+                            <td><input type="checkbox" id="item3" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Take regular breaks throughout the day to avoid burnout.</td>
+                            <td><input type="checkbox" id="item4" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Practice good time management by avoiding procrastination and staying focused on the task at hand.</td>
+                            <td><input type="checkbox" id="item5" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Incorporate healthy habits such as eating a balanced diet and staying hydrated.</td>
+                            <td><input type="checkbox" id="item6" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Make time for relaxation and leisure activities in the evening to wind down and prepare for sleep.</td>
+                            <td><input type="checkbox" id="item7" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Reflect on the day before bed to process any thoughts and emotions.</td>
+                            <td><input type="checkbox" id="item8" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Maintaining a gratitude journal as it has been found to be effective for personal growth and increasing overall happiness.</td>
+                            <td><input type="checkbox" id="item9" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+                        <tr>
+                            <td>Do not forget to be consistent with your routine, it will take time to form a habit but once you are able to stick to it, it will be beneficial for you.</td>
+                            <td><input type="checkbox" id="item10" value="1" onclick="calculateTotal()"></td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end">
+                    <button id="resetButton" onclick="resetPage()">Reset</button>
+                </div>
+                <p>Result: <span id="total"></span></p>
+                <div style="display: flex; justify-content: center;">
+                    <img id="image" src="" alt="image">
+
+                </div>
+                <p><span id="recovery"></span></p>
+            </form>
+
+        </div>
+
+
+
+
+
+
+
+        <script>
+            function calculateTotal() {
+                var item1 = document.getElementById("item1");
+                var item2 = document.getElementById("item2");
+                var item3 = document.getElementById("item3");
+                var item4 = document.getElementById("item4");
+                var item5 = document.getElementById("item5");
+                var item6 = document.getElementById("item6");
+                var item7 = document.getElementById("item7");
+                var item8 = document.getElementById("item8");
+                var item9 = document.getElementById("item9");
+                var item10 = document.getElementById("item10");
+
+                var total = 0;
+
+                if (item1.checked) {
+                    total += parseInt(item1.value);
+                }
+                if (item2.checked) {
+                    total += parseInt(item2.value);
+                }
+                if (item3.checked) {
+                    total += parseInt(item3.value);
+                }
+                if (item4.checked) {
+                    total += parseInt(item4.value);
+                }
+
+                if (item5.checked) {
+                    total += parseInt(item5.value);
+                }
+                if (item6.checked) {
+                    total += parseInt(item6.value);
+                }
+                if (item7.checked) {
+                    total += parseInt(item7.value);
+                }
+
+                if (item8.checked) {
+                    total += parseInt(item8.value);
+                }
+                if (item9.checked) {
+                    total += parseInt(item9.value);
+                }
+                if (item10.checked) {
+                    total += parseInt(item10.value);
+                }
+
+
+
+                if (total === 0) {
+
+                    document.getElementById("total").innerHTML = "Starting is better than nothing!";
+
+                    var image = document.getElementById("image");
+                    image.src = "https://cdn.pixabay.com/photo/2019/03/03/08/25/rabbit-4031334_640.png";
+                    image.classList.add("rounded-circle");
+                    image.classList.add("img-fluid");
+                    image.width = 480;
+                    image.height = 480;
+
+
+
+                } else if (total > 0 && total <= 5) {
+                    document.getElementById("total").innerHTML = "Working your way through it " + total + " items done.";
+
+                    var image = document.getElementById("image");
+                    image.src = "https://cdn.pixabay.com/photo/2017/10/14/15/50/banana-2850841_960_720.png";
+                    image.classList.add("rounded-circle");
+                    image.classList.add("img-fluid");
+                    image.width = 480;
+                    image.height = 480;
+
+
+                } else if (total >= 6 && total <= 9) {
+                    document.getElementById("total").innerHTML = "Almost there are " + total + " items done.";
+
+                    var image = document.getElementById("image");
+                    image.src = "https://cdn.pixabay.com/photo/2020/11/27/06/58/cat-5781057_960_720.jpg";
+                    image.classList.add("rounded-circle");
+                    image.classList.add("img-fluid");
+                    image.width = 480;
+                    image.height = 480;
+
+
+
+                } else if (total === 10) {
+                    document.getElementById("total").innerHTML = "Well done";
+
+                    var image = document.getElementById("image");
+                    image.src = "https://cdn.pixabay.com/photo/2022/08/30/08/04/brain-7420599_960_720.png";
+                    image.classList.add("rounded-circle");
+                    image.classList.add("img-fluid");
+                    image.width = 480;
+                    image.height = 480;
+
+                    recovery_text = "Lets do this!"
+
+                    document.getElementById("recovery").innerHTML = recovery_text;
+
+                }
+
+
+                function resetPage() {
+                    var image = document.getElementById("image");
+                    image.src = "";
+
+
+
+                }
+
+
+
+
+
+
+            }
+        </script>
+
+
+</body>
+
+</html>
